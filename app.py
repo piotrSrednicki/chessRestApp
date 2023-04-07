@@ -34,8 +34,6 @@ def list_available_moves(chess_figure: str, current_field: str):
                 chessboard.chess_Position_Str_To_Int_Touple(current_field.upper())).list_available_moves()
     output["figure"] = chess_figure
     output["currentField"] = current_field
-    if not correct_figure:
-        return figure_error(output)
     if len(output["availableMoves"]) != 0:
         output["error"] = None
     else:
@@ -88,6 +86,12 @@ def field_error(message):
 
 def figure_error(message):
     response = jsonify({'message': message})
+    response.status_code = 404
+    return response
+
+@app.errorhandler(500)
+def server_error(error):
+    response = jsonify(error)
     response.status_code = 404
     return response
 
