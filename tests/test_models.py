@@ -25,18 +25,32 @@ def test_if_chessboard_has_correct_numbers_list(chessboard):
 
 def test_if_chessboard_has_correct_letters_list(chessboard):
     assert len(chessboard.letters) == 8
-    assert chessboard.letters == ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+    assert chessboard.letters == ["A", "B", "C", "D", "E", "F", "G", "H"]
 
 
 def test_if_rook_figure_lists_available_moves_correctly(chessboard):
     rookFigure = RookFigure((1, 1))
-    assert rookFigure.list_available_moves() == ['B1', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'A2', 'C2', 'D2', 'E2', 'F2',
-                                                 'G2', 'H2']
+    assert rookFigure.list_available_moves() == [
+        "B1",
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B7",
+        "B8",
+        "A2",
+        "C2",
+        "D2",
+        "E2",
+        "F2",
+        "G2",
+        "H2",
+    ]
 
 
 def test_if_rook_figure_lists_available_moves_correctly_negative(chessboard):
     rookFigure = RookFigure((1, 1))
-    with pytest.raises(Exception) as exception:
+    with pytest.raises(Exception):
         assert rookFigure.list_available_moves() == []
 
 
@@ -45,21 +59,23 @@ def test_if_rook_figure_validates_a_move_correctly(chessboard):
     assert rookFigure.validate_move((1, 5)) == "valid"
 
 
-def test_if_rook_figure_validates_a_move_correctly_reverse_negative(chessboard):
+def test_if_rook_figure_validates_a_move_correctly_reverse_negative(
+    chessboard,
+):
     rookFigure = RookFigure((1, 1))
-    with pytest.raises(Exception) as exception:
+    with pytest.raises(Exception):
         assert rookFigure.validate_move((2, 2)) == "valid"
 
 
 def test_if_pawn_figure_lists_available_moves_correctly(chessboard):
     pawnFigure = PawnFigure((1, 1))
     print(pawnFigure.list_available_moves())
-    assert pawnFigure.list_available_moves() == ["B3","B1"]
+    assert pawnFigure.list_available_moves() == ["B3", "B1"]
 
 
 def test_if_pawn_figure_lists_available_moves_correctly_negative(chessboard):
     pawnFigure = PawnFigure((1, 1))
-    with pytest.raises(Exception) as exception:
+    with pytest.raises(Exception):
         assert pawnFigure.list_available_moves() == []
 
 
@@ -68,20 +84,23 @@ def test_if_pawn_figure_validates_a_move_correctly(chessboard):
     assert pawnFigure.validate_move((1, 2)) == "valid"
 
 
-def test_if_pawn_figure_validates_a_move_correctly_reverse_negative(chessboard):
+def test_if_pawn_figure_validates_a_move_correctly_reverse_negative(
+    chessboard,
+):
     pawnFigure = PawnFigure((1, 1))
-    with pytest.raises(Exception) as exception:
+    with pytest.raises(Exception):
         assert pawnFigure.validate_move((2, 2)) == "valid"
+
 
 def test_if_knight_figure_lists_available_moves_correctly(chessboard):
     knightFigure = KnightFigure((1, 1))
     print(knightFigure.list_available_moves())
-    assert knightFigure.list_available_moves() == ['E1', 'E3', 'C5', 'A5']
+    assert knightFigure.list_available_moves() == ["E1", "E3", "C5", "A5"]
 
 
 def test_if_knight_figure_lists_available_moves_correctly_negative(chessboard):
     knightFigure = KnightFigure((1, 1))
-    with pytest.raises(Exception) as exception:
+    with pytest.raises(Exception):
         assert knightFigure.list_available_moves() == []
 
 
@@ -90,21 +109,45 @@ def test_if_knight_figure_validates_a_move_correctly(chessboard):
     assert knightFigure.validate_move((4, 2)) == "valid"
 
 
-def test_if_knight_figure_validates_a_move_correctly_reverse_negative(chessboard):
+def test_if_knight_figure_validates_a_move_correctly_reverse_negative(
+    chessboard,
+):
     knightFigure = KnightFigure((1, 1))
-    with pytest.raises(Exception) as exception:
+    with pytest.raises(Exception):
         assert knightFigure.validate_move((2, 2)) == "valid"
+
 
 def test_if_queen_figure_lists_available_moves_correctly(chessboard):
     queenFigure = QueenFigure((7, 7))
     print(queenFigure.list_available_moves())
-    assert queenFigure.list_available_moves() == ['H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'H7', 'A8', 'B8', 'C8', 'D8', 'E8', 'F8', 'G8', 'A1', 'B2', 'C3', 'D4', 'E5', 'F6', 'G7']
-
+    assert queenFigure.list_available_moves() == [
+        "H1",
+        "H2",
+        "H3",
+        "H4",
+        "H5",
+        "H6",
+        "H7",
+        "A8",
+        "B8",
+        "C8",
+        "D8",
+        "E8",
+        "F8",
+        "G8",
+        "A1",
+        "B2",
+        "C3",
+        "D4",
+        "E5",
+        "F6",
+        "G7",
+    ]
 
 
 def test_if_queen_figure_lists_available_moves_correctly_negative(chessboard):
-    queenFigure = QueenFigure((1,1))
-    with pytest.raises(Exception) as exception:
+    queenFigure = QueenFigure((1, 1))
+    with pytest.raises(Exception):
         assert queenFigure.list_available_moves() == []
 
 
@@ -113,21 +156,32 @@ def test_if_queen_figure_validates_a_move_correctly(chessboard):
     assert queenFigure.validate_move((3, 3)) == "valid"
 
 
-def test_if_queen_figure_validates_a_move_correctly_reverse_negative(chessboard):
+def test_if_queen_figure_validates_a_move_correctly_reverse_negative(
+    chessboard,
+):
     queenFigure = QueenFigure((1, 1))
-    with pytest.raises(Exception) as exception:
+    with pytest.raises(Exception):
         assert queenFigure.validate_move((2, 3)) == "valid"
+
 
 def test_if_king_figure_lists_available_moves_correctly(chessboard):
     kingFigure = KingFigure((1, 1))
     print(kingFigure.list_available_moves())
-    assert kingFigure.list_available_moves() == ['A1', 'A2', 'A3', 'B1', 'B3', 'C1', 'C2', 'C3']
-
+    assert kingFigure.list_available_moves() == [
+        "A1",
+        "A2",
+        "A3",
+        "B1",
+        "B3",
+        "C1",
+        "C2",
+        "C3",
+    ]
 
 
 def test_if_king_figure_lists_available_moves_correctly_negative(chessboard):
-    kingFigure = KingFigure((1,1))
-    with pytest.raises(Exception) as exception:
+    kingFigure = KingFigure((1, 1))
+    with pytest.raises(Exception):
         assert kingFigure.list_available_moves() == []
 
 
@@ -136,23 +190,33 @@ def test_if_king_figure_validates_a_move_correctly(chessboard):
     assert kingFigure.validate_move((2, 2)) == "valid"
 
 
-def test_if_king_figure_validates_a_move_correctly_reverse_negative(chessboard):
+def test_if_king_figure_validates_a_move_correctly_reverse_negative(
+    chessboard,
+):
     kingFigure = KingFigure((1, 1))
-    with pytest.raises(Exception) as exception:
+    with pytest.raises(Exception):
         assert kingFigure.validate_move((2, 3)) == "valid"
 
 
 def test_if_bishop_figure_lists_available_moves_correctly(chessboard):
     bishopFigure = BishopFigure((1, 1))
     print(bishopFigure.list_available_moves())
-    assert bishopFigure.list_available_moves() == ['A1', 'C3', 'D4', 'E5', 'F6', 'G7', 'H8', 'A3', 'C1']
-
-
+    assert bishopFigure.list_available_moves() == [
+        "A1",
+        "C3",
+        "D4",
+        "E5",
+        "F6",
+        "G7",
+        "H8",
+        "A3",
+        "C1",
+    ]
 
 
 def test_if_bishop_figure_lists_available_moves_correctly_negative(chessboard):
-    bishopFigure = BishopFigure((1,1))
-    with pytest.raises(Exception) as exception:
+    bishopFigure = BishopFigure((1, 1))
+    with pytest.raises(Exception):
         assert bishopFigure.list_available_moves() == []
 
 
@@ -161,8 +225,9 @@ def test_if_bishop_figure_validates_a_move_correctly(chessboard):
     assert bishopFigure.validate_move((3, 3)) == "valid"
 
 
-def test_if_bishop_figure_validates_a_move_correctly_reverse_negative(chessboard):
+def test_if_bishop_figure_validates_a_move_correctly_reverse_negative(
+    chessboard,
+):
     bishopFigure = BishopFigure((1, 1))
-    with pytest.raises(Exception) as exception:
+    with pytest.raises(Exception):
         assert bishopFigure.validate_move((2, 3)) == "valid"
-

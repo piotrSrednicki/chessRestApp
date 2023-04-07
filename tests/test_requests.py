@@ -6,7 +6,6 @@ except Exception as e:
 
 
 class Flask_tests(unittest.TestCase):
-
     def test_flask_endpoint_list_available_moves_code_200(self):
         tester = app.test_client(self)
         response = tester.get("/api/v1/rook/h1")
