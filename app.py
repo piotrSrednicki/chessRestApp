@@ -32,13 +32,15 @@ def list_available_moves(chess_figure: str, current_field: str):
     correct_figure: bool = False
     wrong_field: bool = False
     output["availableMoves"] = []
+    current_field_tuple: tuple[int, int] = -1, -1
+    current_field_tuple = chessboard.chess_Position_Str_To_Int_Touple(
+        current_field.upper()
+    )
 
     for figure in possible_figures_mapping:
         if figure == chess_figure:
             correct_figure = True
-            if chessboard.chess_Position_Str_To_Int_Touple(
-                current_field.upper()
-            ) == (
+            if current_field_tuple == (
                 -1,
                 -1,
             ):
@@ -46,9 +48,7 @@ def list_available_moves(chess_figure: str, current_field: str):
                 output["availableMoves"] = []
             else:
                 output["availableMoves"] = possible_figures_mapping[figure](
-                    chessboard.chess_Position_Str_To_Int_Touple(
-                        current_field.upper()
-                    )
+                    current_field_tuple
                 ).list_available_moves()
 
     output["figure"] = chess_figure

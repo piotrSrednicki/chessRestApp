@@ -3,6 +3,7 @@ from models.Chessboard import Chessboard
 
 from typing import Tuple
 
+
 class KnightFigure(Figure):
     def __init__(self, field: Tuple[int, int]):
         super().__init__(field)

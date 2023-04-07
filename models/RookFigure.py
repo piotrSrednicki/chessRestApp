@@ -3,10 +3,11 @@ from models.Chessboard import Chessboard
 
 from typing import Tuple
 
+
 class RookFigure(Figure):
     def __init__(self, field: Tuple[int, int]):
         super().__init__(field)
-        self.field = field
+        self.field: Tuple[int, int] = field
         # top-left, top, top-right...
         # x - abcd
         # y - 1234
@@ -19,6 +20,8 @@ class RookFigure(Figure):
         self.chessboard: Chessboard = Chessboard()
 
     def list_available_moves(self) -> list[str]:
+        if len(self.field) != 2:
+            return []
         if not (
             self.field[0] in range(self.min_x_and_y, self.max_x_and_y + 1)
             and self.field[1] in range(self.min_x_and_y, self.max_x_and_y + 1)
