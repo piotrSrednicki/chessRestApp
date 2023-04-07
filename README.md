@@ -18,5 +18,5 @@
 - The application is dockerized
 - Multiple tests located in the tests folder were created (for testing classes as well as endpoints)
     - test_models file is tested by using command pytest
-    - test_requests file is tested by running the file
+    - test_requests file is tested by running the file as it uses unittest
 - Static Typing was used
