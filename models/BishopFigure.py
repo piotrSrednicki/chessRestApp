@@ -1,9 +1,11 @@
 from models.AbstractFigure import Figure
 from models.Chessboard import Chessboard
 
+from typing import Tuple
+
 
 class BishopFigure(Figure):
-    def __init__(self, field: tuple[int, int]):
+    def __init__(self, field: Tuple[int, int]):
         super().__init__(field)
         self.field = field
         # top-left, top, top-right...
@@ -31,7 +33,7 @@ class BishopFigure(Figure):
             return []
         available_moves: list[str] = []
         for move in self.moves_list:
-            position_after_move: tuple[int, int] = (
+            position_after_move: Tuple[int, int] = (
                 self.field[0] + move[0],
                 self.field[1] + move[1],
             )

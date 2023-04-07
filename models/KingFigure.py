@@ -1,9 +1,10 @@
 from models.AbstractFigure import Figure
 from models.Chessboard import Chessboard
 
+from typing import Tuple
 
 class KingFigure(Figure):
-    def __init__(self, field: tuple[int, int]):
+    def __init__(self, field: Tuple[int, int]):
         super().__init__(field)
         self.field = field
         # top-left, top, top-right...
@@ -30,7 +31,7 @@ class KingFigure(Figure):
         ):
             return []
         available_moves: list[str] = []
-        position_after_move: tuple[int, int] = -1, -1
+        position_after_move: Tuple[int, int] = -1, -1
         for move in self.moves_list:
             position_after_move = (
                 self.field[0] + move[0],
