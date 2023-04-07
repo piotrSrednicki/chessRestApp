@@ -7,6 +7,7 @@
 
 - Without Docker:
     - open cmd and go to the project directory
+    - execute "pip install -r requirements.txt"
     - execute "./app.py"
     - visit http://localhost:5000/
 
@@ -20,3 +21,4 @@
     - test_models file is tested by using command pytest
     - test_requests file is tested by running the file as it uses unittest
 - Static Typing was used
+- Code was formatted using black and tested with flake8
