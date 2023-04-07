@@ -35,7 +35,7 @@ def test_if_rook_figure_lists_available_moves_correctly(chessboard):
 
 
 def test_if_rook_figure_lists_available_moves_correctly_negative(chessboard):
-    rookFigure = RookFigure((-2, -2))
+    rookFigure = RookFigure((1, 1))
     with pytest.raises(Exception) as exception:
         assert rookFigure.list_available_moves() == []
 
@@ -58,7 +58,7 @@ def test_if_pawn_figure_lists_available_moves_correctly(chessboard):
 
 
 def test_if_pawn_figure_lists_available_moves_correctly_negative(chessboard):
-    pawnFigure = PawnFigure((-2, -2))
+    pawnFigure = PawnFigure((1, 1))
     with pytest.raises(Exception) as exception:
         assert pawnFigure.list_available_moves() == []
 
@@ -80,7 +80,7 @@ def test_if_knight_figure_lists_available_moves_correctly(chessboard):
 
 
 def test_if_knight_figure_lists_available_moves_correctly_negative(chessboard):
-    knightFigure = KnightFigure((-2, -2))
+    knightFigure = KnightFigure((1, 1))
     with pytest.raises(Exception) as exception:
         assert knightFigure.list_available_moves() == []
 
@@ -103,7 +103,7 @@ def test_if_queen_figure_lists_available_moves_correctly(chessboard):
 
 
 def test_if_queen_figure_lists_available_moves_correctly_negative(chessboard):
-    queenFigure = QueenFigure((-2, -2))
+    queenFigure = QueenFigure((1,1))
     with pytest.raises(Exception) as exception:
         assert queenFigure.list_available_moves() == []
 
@@ -126,7 +126,7 @@ def test_if_king_figure_lists_available_moves_correctly(chessboard):
 
 
 def test_if_king_figure_lists_available_moves_correctly_negative(chessboard):
-    kingFigure = KingFigure((-2, -2))
+    kingFigure = KingFigure((1,1))
     with pytest.raises(Exception) as exception:
         assert kingFigure.list_available_moves() == []
 
@@ -151,7 +151,7 @@ def test_if_bishop_figure_lists_available_moves_correctly(chessboard):
 
 
 def test_if_bishop_figure_lists_available_moves_correctly_negative(chessboard):
-    bishopFigure = BishopFigure((-2, -2))
+    bishopFigure = BishopFigure((1,1))
     with pytest.raises(Exception) as exception:
         assert bishopFigure.list_available_moves() == []
 
