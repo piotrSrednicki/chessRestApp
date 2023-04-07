@@ -1,6 +1,7 @@
 import itertools
 import string
 
+from typing import Tuple
 
 class Chessboard:
     def __init__(self):
@@ -14,7 +15,7 @@ class Chessboard:
         ]
 
     def int_Touple_To_Chess_PositionStr(
-        self, x_y_position: tuple[int, int]
+        self, x_y_position: Tuple[int, int]
     ) -> str:
         return self.letters[x_y_position[0]] + str(
             self.numbers[x_y_position[1]]
@@ -22,9 +23,12 @@ class Chessboard:
 
     def chess_Position_Str_To_Int_Touple(
         self, chess_position: str
-    ) -> tuple[int, int]:
+    ) -> Tuple[int, int]:
         if len(chess_position) != 2:
             return -1, -1
         for index, letter in enumerate(self.letters):
             if letter == chess_position[0]:
-                return index, int(chess_position[1]) - 1
+                try:
+                    return index, int(chess_position[1]) - 1
+                except Exception:
+                    return -1,-1
