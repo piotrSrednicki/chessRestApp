@@ -13,6 +13,8 @@ class Chessboard:
         return self.letters[x_y_position[0]] + str(self.numbers[x_y_position[1]])
 
     def chess_Position_Str_To_Int_Touple(self, chess_position: str) -> tuple[int, int]:
+        if len(chess_position) != 2:
+            return (-1,-1)
         for index, letter in enumerate(self.letters):
             if letter == chess_position[0]:
                 return index, int(chess_position[1])-1
