@@ -3,6 +3,7 @@ import string
 
 from typing import Tuple
 
+
 class Chessboard:
     def __init__(self):
         self.letters: list[str] = list(string.ascii_uppercase[0:8])
@@ -31,4 +32,5 @@ class Chessboard:
                 try:
                     return index, int(chess_position[1]) - 1
                 except Exception:
-                    return -1,-1
+                    return -1, -1
+        return -1, -1
