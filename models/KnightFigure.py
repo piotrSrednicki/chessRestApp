@@ -15,8 +15,9 @@ class KnightFigure(Figure):
         self.chessboard: Chessboard = Chessboard()
 
     def list_available_moves(self) -> list[str]:
-        assert self.field[0] in range(self.min_x_and_y, self.max_x_and_y+ 1) \
-               and self.field[1] in range(self.min_x_and_y, self.max_x_and_y+ 1)
+        if not (self.field[0] in range(self.min_x_and_y, self.max_x_and_y + 1)
+                and self.field[1] in range(self.min_x_and_y, self.max_x_and_y + 1)):
+            return []
         available_moves: list[str] = []
         for move in self.moves_list:
             position_after_move: tuple[int, int] = self.field[0] + move[0], self.field[1] + move[1]
